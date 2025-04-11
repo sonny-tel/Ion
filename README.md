@@ -34,5 +34,5 @@ You'll want to use the branch repositories, build steps should be basically the 
 * [Launcher](https://github.com/VITALISED/NorthstarLauncher/tree/ion)
 
 ## Credits
-Northstar for inspiring me to stick it to the man
-Knightfire-rdp for his pretty ok core banner indicator mod which I used for damage indicators.
+* Northstar for inspiring me to stick it to the man
+* Knightfire-rdp for his pretty ok core banner indicator mod which I ~~stole~~ used for damage indicators.
