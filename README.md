@@ -5,7 +5,7 @@ Extended, vanilla compatible Northstar fork (that means you can play on Northsta
 It is also a cool kitchen sink of random things I like, they're mostly disabled by default but you can go check them out.
 
 ## Extras
-* Sort of EMM inspired menu
+* Sort of EMM inspired menu with extra stuff
 * Some rudamentary Demo playback UI
 * Loading progress
 * Some less crashes in places maybe
@@ -22,11 +22,11 @@ If you're a Vanilla+ user, this is also an upgrade since this fixes match settin
 Going forward, this project will keep versioning mostly in check with upstream Northstar, mods will still be named Northstar.* so you can host
 with Northstar players (Northstar.Custom being required and that).
 
-The `VANILLA` const has been stripped, and has been replaced with `NSIsVanilla()`. This may be reimplemented in the future but only to Client and Server VMs for compat depending on demand.
+The `VANILLA` const has been deprecated, and has been replaced with `NSIsVanilla()`. This is still somewhat implemented but only really practical in Client and Server VMs.
 
-For mod developers, an `ION_VER` const has been declared if you'd like parity across forks. You'll also want to replace `Remote_RegisterFunction` with `NSRemote_RegisterFunction` to prevent out-of-sync disconnects.
+For mod developers, an `ION_VER` const has been declared although this probably won't be too helpful, so you can also use `VANILLA` which is 2 instead of 1 if you want to use that instead. You'll also want to replace `Remote_RegisterFunction` with `NSRemote_RegisterFunction` to prevent out-of-sync disconnects since ideally all scripts can be compiled at once.
 
-The B3, Wingman Eite and Softball, along with some other weapons will be extremely wonky on Northstar servers, nothing I can do about that unless the server you're on is also running Ion. SNS and some other modes probably wont work for Northstar players if you're hosting from Ion due to changes fixing this.
+The B3, Wingman Eite and Softball, along with some other weapons will be extremely wonky on Northstar servers, nothing I can do about that unless the server you're on is also running Ion. SNS and some other modes probably wont work for Northstar players if you're hosting from Ion due to changes fixing this between Northstar and Vanilla.
 
 ## Build
 You'll want to use the branch repositories, build steps should be basically the same as normal Northstar:
