@@ -6,6 +6,41 @@ If you're a Vanilla+ user, this is also an upgrade since this fixes match settin
 
 This is also a cool kitchen sink of random things I like, because this project started out as a personal quality of life project, they're mostly disabled by default but you can go check them out.
 
+## Instructions
+
+#### 1. Make sure you've installed Northstar beforehand, this is a drop-in replacement
+
+#### 2. Download the files
+* DiscordRPC.dll 
+* mods.7z 
+* Northstar.dll
+From the Releases tab
+(the 2 source code zip files are not needed)
+
+#### 3. Go to your Titanfall 2 directory folder, 
+If bought through EA APP, usually it's at "C:\Program Files\EA Games\Titanfall2"
+If bought through Steam, either go to "C:\Program Files\Steam\steamapps\common\Titanfall2" 
+OR go to Steam, right click the game in library, click on "Properties", click on "Installed Files" tab,
+and then click on "Browse" on the right side, to get automatically thrown into the directory folder for the game
+
+#### 4. Once in the Titanfall 2 directory folder 
+Put the "Northstar.dll" file in the Titanfall 2 directory folder, and replace the existing one 
+Put the "DiscordRPC.dll" file in the R2Northstar\Plugins folder, and replace the existing one
+
+#### 5. Final Step for "mods.7z"
+Go to R2Northstar/mods folder and remove the current folders from there if they are already present:
+"Northstar.Client, Northstar.Coop, Northstar.Custom, Northstar.CustomServers"
+Once the folders are removed, put extract the 4 folders from the "mods.7z" zip and place them in the same folder
+that you removed the previous folders from, the R2Northstar/mods folder
+
+#### 6. Add -northstar launch argument
+If you own the game via steam, right click on Titanfall 2, then hit "Properties" and add `-northstar` to the "Launch Options" field
+For EA App users, click on Titanfall 2 on the left side, then hit the "Manage" button, then "View properties" and add `-northstar` to the "Advanced launch options" box
+
+#### 7. Everything is done
+You can just launch the Vanilla game normally like before, this mod combines what is effectively Vanilla+ and Northstar,
+so you can launch either modded Vanilla or Northstar from the main menu, enjoy
+
 ## Extras
 * Sort of EMM inspired menu with extra stuff
 * Some rudamentary Demo playback UI
@@ -33,3 +68,4 @@ You'll want to use the branch repositories, the steps should be basically the sa
 ## Credits
 * Northstar for inspiring me to stick it to the man and waste my time on this terrible game still after how many years
 * Knightfire-rdp for his pretty ok core banner indicator mod which I ~~stole~~ used for damage indicators.
+* Also Knightfire-rdp for writing the installation instructions
