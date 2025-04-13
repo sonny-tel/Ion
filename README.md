@@ -14,7 +14,7 @@ This is also a cool kitchen sink of random things I like, because this project s
 * DiscordRPC.dll 
 * mods.7z 
 * Northstar.dll
-From the Releases tab
+From the [Releases](https://github.com/sonny-tel/Ion/releases/latest) tab
 (the 2 source code zip files are not needed)
 
 #### 3. Go to your Titanfall 2 directory folder, 
