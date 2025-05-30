@@ -1,10 +1,12 @@
+
+![image](https://github.com/user-attachments/assets/bedb5003-56c8-4eb8-8e33-fa2e4cec5c24)
 # Ion
 
-Extended and Vanilla compatible Titanfall 2 Northstar fork, which unlike Vanilla+ actually lets you play Northstar and Vanilla at the same time, and without a completely scuffed experience.
+This is a Northstar fork for Titanfall 2, which unlike Vanilla+ lets you play Northstar and Vanilla at the same time.
 
-If you're a Vanilla+ user, this is also an upgrade since this fixes match settings, pretty baller. If you don't want the full experience you should still use the provided Northstar.dll, although this is not recommended by itself and probably has some security holes if run on it's own.
+Also contains a kitchen sink of other things I like because this started out as just my personal little thing to play on.
 
-This is also a cool kitchen sink of random things I like, because this project started out as a personal quality of life project, they're mostly disabled by default but you can go check them out.
+I don't know what the usage of this is, but if you want to get in touch you can message me on discord @sonny.tel or join the [r1delta discord](https://discord.gg/r1delta). 
 
 ## Instructions
 
@@ -42,23 +44,30 @@ You can just launch the Vanilla game normally like before, this mod combines wha
 so you can launch either modded Vanilla or Northstar from the main menu, enjoy
 
 ## Extras
-* Sort of EMM inspired menu with extra stuff
-* Some rudamentary Demo playback UI
+* EMM inspired menu with cool stuff (taskinoz my goat).
+* Cooler rich presence
+* Rudamentary demo playback UI
 * Loading progress
-* Some less crashes in places maybe
-* Vanilla compat whilst maintaining security hooks
-* Spruced up UI because it is very ugly (not done yet)
-* Lots of HUD things.
+* Considerably less crashes than Northstar (also turned off script errors on client I have no idea why they don't do this)
+* Some UI changes
+* Lots of HUD gimmicks
+* Match settings fixes
+
+Most of these are off by default you can just ignore them if you don't care
+
+## What I want to add
+* Drivable demo cam would be cool but lazy
+* GMod script error popup please dogecore when you gangstalk my profile can you add it from R1Delta
+* migrateme and invite stuff since origin invites are gone
+* Go through all the script/exploit-fix funcs with tracy and do some optimisations, perf seems a bit crap
 
 ## Parity and Some Issues Worth Note
-Going forward, this project will keep versioning mostly in check with upstream Northstar, mods will still be named Northstar.* so you can host
+Going forward, this project will keep versioning mostly in check with Northstar, mods will still be named Northstar.* so you can host
 with Northstar players (Northstar.Custom being required and that).
 
-The `VANILLA` const has been deprecated, and has been replaced with `NSIsVanilla()`. The const is still somewhat implemented but only really practical in Client and Server VMs, and is NOT recommended to use at all in UI script except maybe to detect if Ion is installed (see below).
+Existing mods SHOULD work assuming they aren't anything that touch the UI, the VANILLA constant hopefully will behave on client and server script vms. If there are any issues please open an issue and I'll work on compatability patches.
 
-For mod developers, an `ION_VER` const has been declared although this probably won't be too helpful, so you can also use `VANILLA` which is 2 instead of 1 if you want to use that instead (`#if VANILLA == 2` *should* work). I'm not entirely sure how this would work in theory so please reach out if this is a stupid approach. You'll also want to replace `Remote_RegisterFunction` with `NSRemote_RegisterFunction` to prevent out-of-sync disconnects since ideally all custom server scripts can be compiled at once and be vanilla compatible.
-
-The B3, Wingman Eite and Softball, along with some other weapons maybe depending on what they do in the future will be extremely wonky on Northstar servers, nothing I can do about that unless the server you're on is also running Ion. SNS and some other modes probably wont work for Northstar players if you're hosting from Ion, due to changes fixing this between Northstar and Vanilla. Personally, I hope in the future Northstar will be like wow this project is awesome and move all their weapon stuff to new files that don't add keyvalue stuff to the vanilla ones, please do that.
+The B3, Wingman Eite and Softball, along with some other weapons maybe depending on what they do in the future will be extremely wonky on Northstar servers, nothing I can do about that unless the server you're on is also running Ion. SNS and some other modes probably wont work for Northstar players if you're hosting from Ion, due to changes fixing this between Northstar and Vanilla. Personally, I hope in the future Northstar will be like wow this project is awesome and move all their weapon stuff to new files that don't add keyvalue stuff to the vanilla weapons, please do that.
 
 ## Build
 You'll want to use the branch repositories, the steps should be basically the same as for normally building Northstar:
@@ -69,3 +78,5 @@ You'll want to use the branch repositories, the steps should be basically the sa
 * Northstar for inspiring me to stick it to the man and waste my time on this terrible game still after how many years
 * Knightfire-rdp for his pretty ok core banner indicator mod which I ~~stole~~ used for damage indicators.
 * Also Knightfire-rdp for writing the installation instructions
+* Ado_ for making all the cool cover art for this. They have a [SteamGrid](https://www.steamgriddb.com/profile/76561199101934933) profile which has stuff for this project which you can check out.
+* Allusive for being weird
