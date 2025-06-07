@@ -1,0 +1,9 @@
+# Ignore packaging stuff
+*
+
+# Stuff to actually track
+!icon.png
+!manifest.json
+!README.md
+!CHANGELOG.md
+!.gitignore
