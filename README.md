@@ -8,7 +8,7 @@ Also contains a kitchen sink of other things I like because this started out as 
 
 I don't know what the usage of this is, but if you want to get in touch you can message me on discord @sonny.tel or join the [R1Delta discord](https://discord.gg/r1delta).
 
-If you have any bugs please open an issue at [https://github.com/sonny-tel/Ion](https://github.com/sonny-tel/Ion)
+If you find any bugs please open an issue at [https://github.com/sonny-tel/Ion](https://github.com/sonny-tel/Ion)
 
 ## Instructions
 
