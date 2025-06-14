@@ -8,6 +8,8 @@ Also contains a kitchen sink of other things I like because this started out as 
 
 I don't know what the usage of this is, but if you want to get in touch you can message me on discord @sonny.tel or join the [R1Delta discord](https://discord.gg/r1delta).
 
+If you have any bugs please open an issue at [https://github.com/sonny-tel/Ion](https://github.com/sonny-tel/Ion)
+
 ## Instructions
 
 Installation is basically the same as regular Northstar, just follow their manual install instructions [here](https://docs.northstar.tf/Wiki/installing-northstar/manual-installation/#installing-northstar). If you have an existing Northstar install, you might want to backup/delete any files in R2Northstar/mods, as there's a good chance there might be problems.
@@ -18,7 +20,7 @@ For EA App users, click on Titanfall 2 on the left side, then hit the "Manage" b
 
 ## Extras
 * EMM inspired menu with cool stuff.
-* Cooler rich presence
+* Cooler rich presence with game invites
 * Rudamentary demo playback UI
 * Loading progress
 * Considerably less crashes than Northstar (also turned off script errors on client I have no idea why they don't do this)
@@ -32,8 +34,6 @@ Most of these are off by default you can just ignore them if you don't care
 ## What I want to add
 * Drivable demo cam would be cool but lazy
 * GMod script error popup please dogecore when you gangstalk my profile can you add it
-* migrateme and invite stuff since origin invites are gone
-* Go through all the script/exploit-fix funcs with tracy and do some optimisations, perf seems a bit crap
 
 ## Modding
 Parity is mostly in touch with Northstar, versioning and mod names are the same. Any existing mods using UI script stuff that do `#if VANILLA` probably won't work but that's about it.
@@ -66,9 +66,10 @@ WeaponData
 You'll want to use the branch repositories, the steps should be basically the same as for normally building Northstar:
 * [Mods](https://github.com/VITALISED/NorthstarMods/tree/ion)
 * [Launcher](https://github.com/VITALISED/NorthstarLauncher/tree/ion)
+* [DiscordRPC](https://github.com/sonny-tel/NorthstarDiscordRPC/tree/ion)
 
 ## Credits
 * Northstar for inspiring me to stick it to the man and waste my time on this terrible game still after how many years
 * Knightfire-rdp for his pretty ok core banner indicator mod which I ~~stole~~ used for damage indicators.
 * Ado_ for making all the cool cover art for this. They have a [SteamGrid](https://www.steamgriddb.com/profile/76561199101934933) profile which has stuff for this project which you can check out.
-* Allusive for being weird
+* Allusive for being weird and helping me reverse some stuff among other things

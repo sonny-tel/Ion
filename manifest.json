@@ -2,7 +2,7 @@
     "namespace": "ion",
     "name": "Ion",
     "description": "Vanilla compatible Northstar fork with additional features and improvements.",
-    "version_number": "1.30.2",
+    "version_number": "1.30.3",
     "dependencies": [],
     "website_url": "https://github.com/sonny-tel/Ion"
 }
