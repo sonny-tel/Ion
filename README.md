@@ -29,6 +29,7 @@ For EA App users, click on Titanfall 2 on the left side, then hit the "Manage" b
 ## What I want to add
 * Drivable demo cam would be cool but lazy
 * GMod script error popup please dogecore when you gangstalk my profile can you add it
+* CI/CD I'm actually so lazy if anyone wants to do this for me I'd really appreciate it
 
 ## Modding
 Parity is mostly in touch with Northstar, versioning and mod names are the same. Any existing mods using UI script stuff that do `#if VANILLA` probably won't work but that's about it.
