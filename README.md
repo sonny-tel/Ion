@@ -6,7 +6,7 @@ This is a Northstar fork for Titanfall 2, which unlike Vanilla+ lets you play No
 
 Also contains a kitchen sink of other things I like because this started out as just my personal little thing to play on, so it's very opinionated, but most mods should still work and everything is disabled by default or out of the way.
 
-If you find any bugs please open an issue at [https://github.com/sonny-tel/Ion](https://github.com/sonny-tel/Ion), or you can message me directly (@sonny.tel) on discord or in the [Official* discord server](https://discord.gg/UhPwruvSFH)
+If you find any bugs please open an issue at [https://github.com/sonny-tel/Ion](https://github.com/sonny-tel/Ion), or you can message me directly (@sonny.tel) on discord or in the [Official Discord Server](https://discord.gg/UhPwruvSFH)
 
 ## Features
 * Fairly decent compatability across Northstar/Vanilla with already existing mods (see below for potential issues and what to do if there's a problem)
