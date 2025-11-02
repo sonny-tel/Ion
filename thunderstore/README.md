@@ -63,3 +63,6 @@ You'll want to use the branch repositories, the steps should be basically the sa
 * [Allusive](https://github.com/AllusiveWheat) for doing a lot of work especially with friend presence and CI, I would not have bothered otherwise, super cool stuff.
 * Northstar for inspiring me to stick it to the man and waste my time on this terrible game still after how many years
 * Ado_ for making all the cool cover art for this. They have a [SteamGrid](https://www.steamgriddb.com/profile/76561199101934933) profile which has stuff for this project which you can check out.
+
+![bear](https://github.com/r1delta/r1delta/assets/37985788/41548f20-0878-4e1e-8538-e9be808fc363)
+<img src="https://github.com/user-attachments/assets/121a9ec2-cba9-4fac-96e0-06472febeb52" align="left">
