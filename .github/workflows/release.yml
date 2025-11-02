@@ -106,7 +106,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/v') && !contains(env.NORTHSTAR_VERSION, '-rc')
         with:
-          name: Ion Release $NORTHSTAR_VERSION Patch $ION_PATCH
+          name: Ion Release ${{ env.NORTHSTAR_VERSION }} Patch ${{ env.ION_PATCH }}
           draft: true
           files: Ion.release.${{ env.NORTHSTAR_VERSION }}.zip
 
