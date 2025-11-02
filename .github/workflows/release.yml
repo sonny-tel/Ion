@@ -16,6 +16,7 @@ permissions:
 env:
   # NORTHSTAR_VERSION: ${{ github.ref_name }}
   NORTHSTAR_VERSION: v1.31.3
+  GIT_VERSION: ${{ github.ref_name }}
   ION_PATCH: 1
   DISCORD_RPC_VERSION: v14
 
@@ -26,7 +27,7 @@ jobs:
       - name: Checkout release files
         uses: actions/checkout@v4
         with:
-          ref: ${{ env.NORTHSTAR_VERSION }}
+          ref: ${{ env.GIT_VERSION }}
           path: northstar
       - name: Wait for launcher release build to be ready
         timeout-minutes: 30 # Only wait for 30 minutes. If we take longer, something probably broke
