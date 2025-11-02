@@ -14,24 +14,27 @@ permissions:
   contents: write # Needed to write to GitHub draft release
 
 env:
-  # NORTHSTAR_VERSION: ${{ github.ref_name }}
-  NORTHSTAR_VERSION: v1.31.3
+  # NORTHSTAR_VERSION: v1.31.3
   GIT_VERSION: ${{ github.ref_name }}
-  ION_PATCH: 1
+  # ION_PATCH: 1
   DISCORD_RPC_VERSION: v14
 
 jobs:
   build-northstar:
     runs-on: ubuntu-22.04
     steps:
+      - name: Set version variables
+        run: |
+          echo "NORTHSTAR_VERSION=${GITHUB_REF_NAME%_*}" >> $GITHUB_ENV
+          echo "ION_PATCH=${GITHUB_REF_NAME##*_}" >> $GITHUB_ENV
       - name: Checkout release files
         uses: actions/checkout@v4
         with:
           ref: ${{ env.GIT_VERSION }}
-          path: northstar
+          path: ion
       - name: Wait for launcher release build to be ready
         timeout-minutes: 30 # Only wait for 30 minutes. If we take longer, something probably broke
-        run: bash northstar/wait_for_launcher_dl.sh $NORTHSTAR_VERSION
+        run: bash ion/wait_for_launcher_dl.sh $NORTHSTAR_VERSION
       - name: Download compiled launcher
         run: wget "https://github.com/sonny-tel/NorthstarLauncher/releases/download/${{ env.NORTHSTAR_VERSION }}_${{env.ION_PATCH}}/northstar-launcher.zip"
       - name: Download DiscordRPC plugin
@@ -57,17 +60,17 @@ jobs:
           git ls-tree -r $NORTHSTAR_VERSION --name-only | xargs -L1 md5sum >> md5sum.txt
       - name: Make folder structure
         run: |
-          mv --verbose northstar/release/* northstar/.
-          rm --dir northstar/release
-          mkdir --parents northstar/R2Northstar/mods
-          mkdir --parents northstar/R2Northstar/plugins
-          mkdir --parents northstar/bin/x64_dedi
+          mv --verbose ion/release/* ion/.
+          rm --dir ion/release
+          mkdir --parents ion/R2Northstar/mods
+          mkdir --parents ion/R2Northstar/plugins
+          mkdir --parents ion/bin/x64_dedi
 
-          unzip northstar-discord-rpc.zip -d northstar/R2Northstar/plugins
+          unzip northstar-discord-rpc.zip -d ion/R2Northstar/plugins
 
-          unzip NorthstarStubs.zip -d northstar/bin/x64_dedi
-          unzip northstar-launcher.zip -d northstar
-          rsync -avr --exclude="Northstar.Coop" --exclude=".git*" --exclude="*.md" northstar-mods/. northstar/R2Northstar/mods
+          unzip NorthstarStubs.zip -d ion/bin/x64_dedi
+          unzip northstar-launcher.zip -d ion
+          rsync -avr --exclude="Northstar.Coop" --exclude=".git*" --exclude="*.md" northstar-mods/. ion/R2Northstar/mods
       - name: Checkout Navmesh repository
         uses: actions/checkout@v4
         with:
@@ -76,9 +79,9 @@ jobs:
           path: northstar-navs
       - name: Navmeshes setup
         run: |
-          mkdir --parents northstar/R2Northstar/mods/Northstar.CustomServers/mod/maps
-          mv --verbose northstar-navs/graphs northstar/R2Northstar/mods/Northstar.CustomServers/mod/maps
-          mv --verbose northstar-navs/navmesh northstar/R2Northstar/mods/Northstar.CustomServers/mod/maps
+          mkdir --parents ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
+          mv --verbose northstar-navs/graphs ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
+          mv --verbose northstar-navs/navmesh ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
       - name: Cleanup root Northstar repository files
         working-directory: northstar
         run: |
@@ -86,25 +89,25 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name: Northstar.release.${{ env.NORTHSTAR_VERSION }}
-          path: northstar
+          name: Ion.release.${{ env.NORTHSTAR_VERSION }}
+          path: ion
       - name: Create zip to upload
         run: |
-          cd northstar/
-          zip --recurse-paths --quiet Northstar.release.${{ env.NORTHSTAR_VERSION }}.zip .
-          mv Northstar.release.${{ env.NORTHSTAR_VERSION }}.zip ../
+          cd ion/
+          zip --recurse-paths --quiet Ion.release.${{ env.NORTHSTAR_VERSION }}.zip .
+          mv Ion.release.${{ env.NORTHSTAR_VERSION }}.zip ../
       - name: Compute SHA-512 checksum
         run: |
-          sha512sum Northstar.release.${{ env.NORTHSTAR_VERSION }}.zip
+          sha512sum Ion.release.${{ env.NORTHSTAR_VERSION }}.zip
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          sha512sum Northstar.release.${{ env.NORTHSTAR_VERSION }}.zip >> $GITHUB_STEP_SUMMARY
+          sha512sum Ion.release.${{ env.NORTHSTAR_VERSION }}.zip >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
       - name: Upload zip to release draft
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/v') && !contains(env.NORTHSTAR_VERSION, '-rc')
         with:
           draft: true
-          files: Northstar.release.${{ env.NORTHSTAR_VERSION }}.zip
+          files: Ion.release.${{ env.NORTHSTAR_VERSION }}.zip
 
   build-thunderstore-package:
     needs: build-northstar # comment out when running locally
@@ -118,9 +121,9 @@ jobs:
       # NORTHSTAR_VERSION: 0.1.8
 
       # Thunderstore info and descriptions
-      TS_NAMESPACE: northstar
-      TS_MOD_NAME: Northstar
-      TS_MOD_DESCRIPTION: Titanfall 2 modding and custom server framework.
+      TS_NAMESPACE: ion
+      TS_MOD_NAME: Ion
+      TS_MOD_DESCRIPTION:  Northstar and Vanilla Titanfall 2 at the same time.
     runs-on: ubuntu-22.04
     steps:
       - name: Setup tcli
@@ -130,37 +133,37 @@ jobs:
           sudo mv --verbose tcli-0.1.4-linux-x64/tcli /bin
 
       - name: (DEBUG) Download Northstar package
-        if: ${{ env.ACT }} # Download Northstar package from releases when running locally instead of relying on previous jobs
+        if: ${{ env.ACT }} # Download Ion package from releases when running locally instead of relying on previous jobs
         run: |
-          wget --output-document northstar.zip https://github.com/R2Northstar/Northstar/releases/download/v1.6.3/Northstar.release.v1.6.3.zip
-          unzip northstar.zip -d northstar
+          wget --output-document ion.zip https://github.com/sonny-tel/Ion/releases/download/v1.6.3/Ion.release.v1.6.3.zip
+          unzip ion.zip -d ion
 
-      - name: Download Northstar package
+      - name: Download Ion package
         if: ${{ !env.ACT }} # Download artifacts from previous jobs when running on GitHub's infrastructure
         uses: actions/download-artifact@v4
         with:
-          name: Northstar.release.${{ env.NORTHSTAR_VERSION }}
-          path: northstar
+          name: Ion.release.${{ env.NORTHSTAR_VERSION }}
+          path: ion
 
       - name: Make package structure
         run: |
-          mkdir --parents thunderstore/dist/Northstar
-          mv --verbose northstar/* thunderstore/dist/Northstar
+          mkdir --parents thunderstore/dist/Ion
+          mv --verbose ion/* thunderstore/dist/Ion
           wget --output-document thunderstore/icon.png https://raw.githubusercontent.com/R2Northstar/Northstar/main/thunderstore/icon.png
           wget --output-document thunderstore/README.md https://raw.githubusercontent.com/R2Northstar/Northstar/main/thunderstore/README.md
 
       - name: Setup environment variables
         run: |
-          # Strip leading `v` and if exists replace `-rc` with `0` and strip leading zeroes from last semver digit if necessary
-          echo "MOD_VERSION=$(echo $NORTHSTAR_VERSION | tr -d 'v'| sed --expression 's/-rc/0/' | sed -E 's/([0-9]+)\.([0-9]+)\.(0*)([0-9])/\1.\2.\4/;')" >> $GITHUB_ENV
+          # Strip leading `v` and if exists replace `-rc` with `0` and strip leading zeroes from last semver digit if necessary, then append 000 + ION_PATCH
+          echo "MOD_VERSION=$(echo $NORTHSTAR_VERSION | tr -d 'v'| sed --expression 's/-rc/0/' | sed -E 's/([0-9]+)\.([0-9]+)\.(0*)([0-9])/\1.\2.\4/;')000$ION_PATCH" >> $GITHUB_ENV
 
           # If it's a release candidate we also want to change a few things
           if [[ $NORTHSTAR_VERSION == *"-rc"* ]]; then
             # We want to push to a different package
             # i.e. `NorthstarReleaseCandidate` vs `Northstar`
-            echo "TS_MOD_NAME=NorthstarReleaseCandidate" >> $GITHUB_ENV
+            echo "TS_MOD_NAME=IonReleaseCandidate" >> $GITHUB_ENV
             # And update mod description
-            echo "TS_MOD_DESCRIPTION=Release candidate for next Northstar release." >> $GITHUB_ENV
+            echo "TS_MOD_DESCRIPTION=Release candidate for next Ion release." >> $GITHUB_ENV
             # Add disclaimer add the top of README
             echo -e '> ⚠️ This is a release candidate. Please report bugs or other issues on GitHub ⚠️\n' | cat - thunderstore/README.md > temp && mv temp thunderstore/README.md
           fi
