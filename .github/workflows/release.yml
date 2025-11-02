@@ -14,7 +14,8 @@ permissions:
   contents: write # Needed to write to GitHub draft release
 
 env:
-  NORTHSTAR_VERSION: ${{ github.ref_name }}
+  # NORTHSTAR_VERSION: ${{ github.ref_name }}
+  NORTHSTAR_VERSION: v1.31.3
   ION_PATCH: 1
   DISCORD_RPC_VERSION: v14
 
