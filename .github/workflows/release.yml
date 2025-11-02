@@ -2,19 +2,20 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
   workflow_dispatch:
     inputs:
       job:
-        description: 'Job to run'
+        description: "Job to run"
         required: true
-        default: 'build-thunderstore-package'
+        default: "build-thunderstore-package"
 
 permissions:
   contents: write # Needed to write to GitHub draft release
 
 env:
   NORTHSTAR_VERSION: ${{ github.ref_name }}
+  ION_PATCH: 1
   DISCORD_RPC_VERSION: v14
 
 jobs:
@@ -28,17 +29,13 @@ jobs:
           path: northstar
       - name: Wait for launcher release build to be ready
         timeout-minutes: 30 # Only wait for 30 minutes. If we take longer, something probably broke
-        run:
-          bash northstar/wait_for_launcher_dl.sh $NORTHSTAR_VERSION
+        run: bash northstar/wait_for_launcher_dl.sh $NORTHSTAR_VERSION
       - name: Download compiled launcher
-        run:
-          wget "https://github.com/sonny-tel/NorthstarLauncher/releases/download/${{ env.NORTHSTAR_VERSION }}/northstar-launcher.zip"
+        run: wget "https://github.com/sonny-tel/NorthstarLauncher/releases/download/${{ env.NORTHSTAR_VERSION }}_${{env.ION_PATCH}}/northstar-launcher.zip"
       - name: Download DiscordRPC plugin
-        run:
-          wget "https://github.com/sonny-tel/NorthstarDiscordRPC/releases/download/${{ env.DISCORD_RPC_VERSION }}/northstar-discord-rpc.zip"
+        run: wget "https://github.com/sonny-tel/NorthstarDiscordRPC/releases/download/${{ env.DISCORD_RPC_VERSION }}/northstar-discord-rpc.zip"
       - name: Download compiled stubs
-        run:
-          wget "https://github.com/R2Northstar/NorthstarStubs/releases/download/v1/NorthstarStubs.zip"
+        run: wget "https://github.com/R2Northstar/NorthstarStubs/releases/download/v1/NorthstarStubs.zip"
       - name: Checkout core mods
         uses: actions/checkout@v4
         with:
@@ -73,7 +70,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: R2Northstar/NorthstarNavs
-          ref: 'v4'
+          ref: "v4"
           path: northstar-navs
       - name: Navmeshes setup
         run: |
