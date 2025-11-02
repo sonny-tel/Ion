@@ -13,8 +13,6 @@ If you find any bugs please open an issue at [https://github.com/sonny-tel/Ion](
 
 ## Instructions
 
-You can grab a copy from the [releases](https://github.com/sonny-tel/Ion/releases/latest) page.
-
 Installation is basically the same as regular Northstar, just follow their manual install instructions [here](https://docs.northstar.tf/Wiki/installing-northstar/manual-installation/#installing-northstar). If you have an existing Northstar install, you might want to backup and delete/move any files in R2Northstar/mods or R2Northstar/packages, as there's a chance there might be problems.
 
 #### Recommended: Add -northstar launch argument
