@@ -45,7 +45,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: sonny-tel/NorthstarMods
-          ref: ${{ env.NORTHSTAR_VERSION }}
+          ref: ${{ env.GIT_VERSION }}
           path: northstar-mods
       - name: Update mod version info
         run: |
