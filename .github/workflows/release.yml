@@ -50,9 +50,9 @@ jobs:
       - name: Update mod version info
         run: |
           export MOD_VERSION=$(echo $NORTHSTAR_VERSION | tr --delete 'v')
-          cat <<< $(jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.Client/mod.json) > northstar-mods/Northstar.Client/mod.json
-          cat <<< $(jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.Custom/mod.json) > northstar-mods/Northstar.Custom/mod.json
-          cat <<< $(jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.CustomServers/mod.json) > northstar-mods/Northstar.CustomServers/mod.json
+          jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.Client/mod.json > northstar-mods/Northstar.Client/mod.json.tmp && mv northstar-mods/Northstar.Client/mod.json.tmp northstar-mods/Northstar.Client/mod.json
+          jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.Custom/mod.json > northstar-mods/Northstar.Custom/mod.json.tmp && mv northstar-mods/Northstar.Custom/mod.json.tmp northstar-mods/Northstar.Custom/mod.json
+          jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.CustomServers/mod.json > northstar-mods/Northstar.CustomServers/mod.json.tmp && mv northstar-mods/Northstar.CustomServers/mod.json.tmp northstar-mods/Northstar.CustomServers/mod.json
       - name: Generate md5sum file
         working-directory: northstar-mods
         run: |
