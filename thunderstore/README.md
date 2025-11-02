@@ -2,7 +2,7 @@
 ![image](https://github.com/user-attachments/assets/bedb5003-56c8-4eb8-8e33-fa2e4cec5c24)
 <h1 align="center">Ion</h1>
 <p align="center"><strong>
-<a href="https://github.com/sonny-tel/Ion/releases/latest">Download</a> | <a href="#">Thunderstore</a> | <a href="https://discord.gg/UhPwruvSFH">Discord</a>
+<a href="#instructions">Install</a> | <a href="https://github.com/sonny-tel/Ion">Github</a> | <a href="https://discord.gg/UhPwruvSFH">Discord</a>
 </strong></p>
 
 This is a Northstar fork for Titanfall 2, which unlike Vanilla+ lets you play Northstar and Vanilla at the same time. 

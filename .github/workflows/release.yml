@@ -122,9 +122,9 @@ jobs:
       # NORTHSTAR_VERSION: 0.1.8
 
       # Thunderstore info and descriptions
-      TS_NAMESPACE: ion
+      TS_NAMESPACE: r2ion
       TS_MOD_NAME: Ion
-      TS_MOD_DESCRIPTION: Northstar and Vanilla Titanfall 2 at the same time.
+      TS_MOD_DESCRIPTION: Northstar fork that lets you play Vanilla and Northstar at the same time.
     runs-on: ubuntu-22.04
     steps:
       - name: Setup tcli
