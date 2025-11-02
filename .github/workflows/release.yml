@@ -82,8 +82,8 @@ jobs:
           mkdir --parents ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
           mv --verbose northstar-navs/graphs ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
           mv --verbose northstar-navs/navmesh ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
-      - name: Cleanup root Northstar repository files
-        working-directory: northstar
+      - name: Cleanup root Ion repository files
+        working-directory: ion
         run: |
           rm -rf .git .github .gitignore *.md LICENSE thunderstore .ci.env.example *.sh
       - name: Upload
