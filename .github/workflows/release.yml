@@ -153,8 +153,8 @@ jobs:
         run: |
           mkdir --parents thunderstore/dist/Ion
           mv --verbose ion/* thunderstore/dist/Ion
-          wget --output-document thunderstore/icon.png https://raw.githubusercontent.com/R2Northstar/Northstar/main/thunderstore/icon.png
-          wget --output-document thunderstore/README.md https://raw.githubusercontent.com/R2Northstar/Northstar/main/thunderstore/README.md
+          wget --output-document thunderstore/icon.png https://raw.githubusercontent.com/sonny-tel/Ion/main/thunderstore/icon.png
+          wget --output-document thunderstore/README.md https://raw.githubusercontent.com/sonny-tel/Ion/main/thunderstore/README.md
 
       - name: Setup environment variables
         run: |
