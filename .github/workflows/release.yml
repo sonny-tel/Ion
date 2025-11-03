@@ -184,8 +184,3 @@ jobs:
 
           tcli build
           tcli publish --repository "$TS_REPO" --file build/*.zip
-      - name: Upload package zip artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: r2ion.$TS_MOD_NAME.${{ env.MOD_VERSION }}.zip
-          path: thunderstore/build
