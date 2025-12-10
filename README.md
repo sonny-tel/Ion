@@ -58,7 +58,38 @@ WeaponData
 ```
 
 ## Hosting
-todo
+You can get the Ion docker image at: [ghcr.io/sonny-tel/northstar-dedicated](https://ghcr.io/sonny-tel/northstar-dedicated)
+
+Servers running Ion can send unverified mods to clients to download. Some notes on this:
+* Northstar auto-downloads are preferred if the name and version match
+* Sonny Auto-downloader will download all mods in the schema, even if they aren't sent to the master-server as a required mod (this can let you have optional client mods if you don't want a fully 100% ion playerbase server).
+
+To create a schema, create a file called `servermodschema.json` in the root of your profile folder (e.g Titanfall2/R2Northstar folder)
+
+Here's an example schema that will download Titanframework to your clients
+
+### Option A: Direct URL
+```json
+{
+    "Peepee.TitanFramework": {
+        "Version": "2.4.3",
+        "URL": "https://gcdn.thunderstore.io/live/repository/packages/The_Peepeepoopoo_man-Titanframework-2.4.3.zip",
+        "Checksum": "6d075d2f7a5764627f949cc757e5e034c528fb4711777a364cb1f788b694ff3a"
+    }
+}
+```
+
+### Option B: Thunderstore dependency string resolution
+```json
+{
+    "Peepee.TitanFramework": {
+        "Version": "2.4.3",
+        "Platform": "thunderstore",
+        "DependencyString": "The_Peepeepoopoo_man-Titanframework-2.4.3.",
+        "Checksum": "6d075d2f7a5764627f949cc757e5e034c528fb4711777a364cb1f788b694ff3a"
+    }
+}
+```
 
 ## Build
 
