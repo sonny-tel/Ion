@@ -80,8 +80,8 @@ jobs:
       - name: Navmeshes setup
         run: |
           mkdir --parents ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
-          mv --verbose northstar-navs/graphs ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
-          mv --verbose northstar-navs/navmesh ion/R2Northstar/mods/Northstar.CustomServers/mod/maps
+          rsync -avr northstar-navs/graphs ion/R2Northstar/mods/Northstar.CustomServers/mod/maps/
+          rsync -avr northstar-navs/navmesh ion/R2Northstar/mods/Northstar.CustomServers/mod/maps/
       - name: Cleanup root Ion repository files
         working-directory: ion
         run: |
@@ -124,7 +124,7 @@ jobs:
       # Thunderstore info and descriptions
       TS_NAMESPACE: r2ion
       TS_MOD_NAME: Ion
-      TS_MOD_DESCRIPTION: Northstar fork that lets you play Vanilla and Northstar at the same time.
+      TS_MOD_DESCRIPTION: Enhanced Northstar fork.
     runs-on: ubuntu-22.04
     steps:
       - name: Setup tcli

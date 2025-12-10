@@ -5,9 +5,14 @@
 <a href="https://github.com/sonny-tel/Ion/releases/latest">Download</a> | <a href="https://thunderstore.io/c/northstar/p/r2ion/Ion/">Thunderstore</a> | <a href="https://discord.gg/UhPwruvSFH">Discord</a>
 </strong></p>
 
-This is a Northstar fork for Titanfall 2, which unlike Vanilla+ lets you play Northstar and Vanilla at the same time. 
+This is a Northstar fork for Titanfall 2 which adds a variety of enhancements for Vanilla and Northstar.
 
-Along with this it attempts to provide a substitute for the Origin social features that allowed you to join your friends' parties and also somewhat attempts to polish up a variety of things I felt were kind of dated. Most fairly opinionated changes have modifiable things in mod settings, however if you're bothered by something and feel it should be customisable let me know.
+Some of the notable features Ion includes are:
+
+* **Vanilla/Northstar compatability at runtime** - you don't have to restart to switch between playing them, along with this Northstar client-server mods will work better on Vanilla and (hopefully) shouldn't have issues.
+* **Sonny Auto-Downloader** (SAD) (name subject to change) - an overlay mod downloader ontop of Northstar's existing mod downloader that allows clients to download unverified remote mods from servers
+* **Full UI redesign of Northstar** - most menus have had a considerable facelift and some annoying UX issues such as the lack of smooth scrolling have been fixed up
+* **Other fun miscellaneous things which are cool** - Loading progress bars, gimmicky mod settings to play with, demo playback helpers and other stuff which I honestly can't remember for you to go find.
 
 If you find any bugs please open an issue at [https://github.com/sonny-tel/Ion](https://github.com/sonny-tel/Ion), or you can message me directly (@sonny.tel) on discord or in the [Official Discord Server](https://discord.gg/UhPwruvSFH)
 
@@ -26,7 +31,7 @@ If you find any mods that don't work you can open an [issue](https://github.com/
 
 Parity is mostly in touch with Northstar, versioning and mod names are the same. Any existing mods using UI script stuff that do `#if VANILLA` probably won't work but that's about it.
 
-In order to check for vanilla in script you should use `NSIsVanilla()` which returns a bool. You'll have to make a guard to check if the function exists for proper Northstar/Ion compatability, so good luck with that.
+In order to check for vanilla in script you should use `NSIsVanilla()`
 
 Ion also introduces a variety of extra script functions for handling demos and raw input. If anyone actually cares about this let me know and I'll document it somewhere.
 
@@ -51,6 +56,9 @@ WeaponData
 ///endif
 }
 ```
+
+## Hosting
+todo
 
 ## Build
 
