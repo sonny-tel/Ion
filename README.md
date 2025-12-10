@@ -85,7 +85,7 @@ Here's an example schema that will download Titanframework to your clients
     "Peepee.TitanFramework": {
         "Version": "2.4.3",
         "Platform": "thunderstore",
-        "DependencyString": "The_Peepeepoopoo_man-Titanframework-2.4.3.",
+        "DependencyString": "The_Peepeepoopoo_man-Titanframework-2.4.3",
         "Checksum": "6d075d2f7a5764627f949cc757e5e034c528fb4711777a364cb1f788b694ff3a"
     }
 }
