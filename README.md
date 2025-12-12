@@ -27,37 +27,6 @@ Installation is basically the same as regular Northstar, just follow their manua
 If you own the game via steam, right click on Titanfall 2, then hit "Properties" and add `-northstar` to the "Launch Options" field
 For EA App users, click on Titanfall 2 on the left side, then hit the "Manage" button, then "View properties" and add `-northstar` to the "Advanced launch options" box
 
-## Modding
-If you find any mods that don't work you can open an [issue](https://github.com/sonny-tel/Ion/issues), please document any script errors in the console or logs I'll look into making compatability patches.
-
-Parity is mostly in touch with Northstar, versioning and mod names are the same. Any existing mods using UI script stuff that do `#if VANILLA` probably won't work but that's about it.
-
-In order to check for vanilla in script you should use `NSIsVanilla()`
-
-Ion also introduces a variety of extra script functions for handling demos and raw input. If anyone actually cares about this let me know and I'll document it somewhere.
-
-For mods making Keyvalue patches, special preprocessors have been added. You can use `///if VANILLA`, `///if NORTHSTAR` and `///endif` (no `///elif` or `///else` yet sorry). Here's a provided example below
-
-```
-// example basically just ripped out of Northstar.Custom ( you can also use ///if VANILLA ) but there's no ///else or ///elif
-WeaponData
-{
-///if NORTHSTAR
-    Mods
-    {
-        sns
-        {
-            explosion_damage "50"
-            damage_near_value "50"
-            damage_far_value "50"
-            ammo_clip_size "1"
-            projectile_launch_speed "7500"
-        }
-    }
-///endif
-}
-```
-
 ## Hosting
 You can get the Ion docker image at: [ghcr.io/sonny-tel/northstar-dedicated](https://ghcr.io/sonny-tel/northstar-dedicated)
 
@@ -91,6 +60,37 @@ Here's an example schema that will download Titanframework to your clients
         "DependencyString": "The_Peepeepoopoo_man-Titanframework-2.4.3",
         "Checksum": "6d075d2f7a5764627f949cc757e5e034c528fb4711777a364cb1f788b694ff3a"
     }
+}
+```
+
+## Modding
+If you find any mods that don't work you can open an [issue](https://github.com/sonny-tel/Ion/issues), please document any script errors in the console or logs I'll look into making compatability patches.
+
+Parity is mostly in touch with Northstar, versioning and mod names are the same. Any existing mods using UI script stuff that do `#if VANILLA` probably won't work but that's about it.
+
+In order to check for vanilla in script you should use `NSIsVanilla()`
+
+Ion also introduces a variety of extra script functions for handling demos and raw input. If anyone actually cares about this let me know and I'll document it somewhere.
+
+For mods making Keyvalue patches, special preprocessors have been added. You can use `///if VANILLA`, `///if NORTHSTAR` and `///endif` (no `///elif` or `///else` yet sorry). Here's a provided example below
+
+```
+// example basically just ripped out of Northstar.Custom ( you can also use ///if VANILLA ) but there's no ///else or ///elif
+WeaponData
+{
+///if NORTHSTAR
+    Mods
+    {
+        sns
+        {
+            explosion_damage "50"
+            damage_near_value "50"
+            damage_far_value "50"
+            ammo_clip_size "1"
+            projectile_launch_speed "7500"
+        }
+    }
+///endif
 }
 ```
 
