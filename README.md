@@ -12,6 +12,7 @@ Some of the notable features Ion includes are:
 * **Vanilla/Northstar compatability at runtime** - you don't have to restart to switch between playing them, along with this Northstar client-server mods will work better on Vanilla and (hopefully) shouldn't have issues.
 * **Sonny Auto-Downloader** (SAD) (name subject to change) - an overlay mod downloader ontop of Northstar's existing mod downloader that allows clients to download unverified remote mods from servers
 * **Full UI redesign of Northstar** - most menus have had a considerable facelift and some annoying UX issues such as the lack of smooth scrolling have been fixed up
+* **Legacy Origin social features** - join your friends' parties without needing EA invites
 * **Other fun miscellaneous things which are cool** - Loading progress bars, gimmicky mod settings to play with, demo playback helpers and other stuff which I honestly can't remember for you to go find.
 
 If you find any bugs please open an issue at [https://github.com/sonny-tel/Ion](https://github.com/sonny-tel/Ion), or you can message me directly (@sonny.tel) on discord or in the [Official Discord Server](https://discord.gg/UhPwruvSFH)
@@ -59,6 +60,8 @@ WeaponData
 
 ## Hosting
 You can get the Ion docker image at: [ghcr.io/sonny-tel/northstar-dedicated](https://ghcr.io/sonny-tel/northstar-dedicated)
+
+If you're not interested in using any of the features offered you can still benefit from using this image as opposed to the official one since it runs a much newer Alpine Linux image with Wine 10, which lets you run Northstar plugins.
 
 Servers running Ion can send unverified mods to clients to download. Some notes on this:
 * Northstar auto-downloads are preferred if the name and version match
