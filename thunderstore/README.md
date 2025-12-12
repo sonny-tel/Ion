@@ -5,11 +5,11 @@
 <a href="#instructions">Install</a> | <a href="https://github.com/sonny-tel/Ion">Github</a> | <a href="https://discord.gg/UhPwruvSFH">Discord</a>
 </strong></p>
 
-**Please don't install this with a mod manager like r2modman, it won't work!**
+### Please don't install this with a mod manager like r2modman, it won't work!
 
-This is a Northstar fork for Titanfall 2 which adds a variety of enhancements for Vanilla and Northstar.
+Ion is a Northstar fork for Titanfall 2 which adds a variety of enhancements for Vanilla and Northstar.
 
-Some of the notable features Ion includes are:
+Some of the notable features included are:
 
 * **Vanilla/Northstar compatability at runtime** - you don't have to restart to switch between playing them, along with this Northstar client-server mods will work better on Vanilla and (hopefully) shouldn't have issues.
 * **Sonny Auto-Downloader** (SAD) (name subject to change) - an overlay mod downloader ontop of Northstar's existing mod downloader that allows clients to download unverified remote mods from servers
