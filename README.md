@@ -36,7 +36,7 @@ Servers running Ion can send unverified mods to clients to download. Some notes 
 * Northstar auto-downloads are preferred if the name and version match
 * Sonny Auto-downloader will download all mods in the schema, even if they aren't sent to the master-server as a required mod (this can let you have optional client mods if you don't want a fully 100% ion playerbase server).
 
-To create a schema, create a file called `servermodschema.json` in the root of your profile folder (e.g Titanfall2/R2Northstar folder)
+To create a schema, create a file called `servermodschema.json` in the root of your profile folder (e.g Titanfall2/R2Northstar)
 
 Here's an example schema that will download Titanframework to your clients
 
