@@ -10,6 +10,7 @@ This is a Northstar fork for Titanfall 2 which adds a variety of enhancements fo
 Some of the notable features Ion includes are:
 
 * **Vanilla/Northstar compatability at runtime** - you don't have to restart to switch between playing them, along with this Northstar client-server mods will work better on Vanilla and (hopefully) shouldn't have issues.
+* **Peer-to-Peer** - Join your friends' Northstar matches locally without having to port-forward. This uses Epic Online Services and is optional.
 * **Sonny Auto-Downloader** (SAD) (name subject to change) - an overlay mod downloader ontop of Northstar's existing mod downloader that allows clients to download unverified remote mods from servers
 * **Full UI redesign of Northstar** - most menus have had a considerable facelift and some annoying UX issues such as the lack of smooth scrolling have been fixed up
 * **Other fun miscellaneous things which are cool** - Loading progress bars, gimmicky mod settings to play with, demo playback helpers and other stuff which I honestly can't remember for you to go find.
@@ -66,7 +67,10 @@ You'll want to use the branch repositories, the steps should be basically the sa
 * [DiscordRPC](https://github.com/sonny-tel/NorthstarDiscordRPC/tree/ion)
 
 ## Hosting
-Instructions are on the [Github repository](https://github.com/sonny-tel/Ion)
+
+You can use P2P after accepting the EOS agreement, restarting your game and going into a private match. Send the address to your friends which they can use to connect from "Direct Connect" in the server browser.
+
+Instructions for hosting an Ion dedicated server are on the [Github repository](https://github.com/sonny-tel/Ion)
 
 ## Credits
 
