@@ -2,7 +2,7 @@
 ![image](https://github.com/user-attachments/assets/bedb5003-56c8-4eb8-8e33-fa2e4cec5c24)
 <h1 align="center">Ion</h1>
 <p align="center"><strong>
-<a href="#instructions">Install</a> | <a href="https://github.com/sonny-tel/Ion">Github</a> | <a href="https://discord.gg/UhPwruvSFH">Discord</a>
+<a href="#instructions">Install</a> | <a href="https://github.com/R2Ion/Ion">Github</a> | <a href="https://discord.gg/UhPwruvSFH">Discord</a>
 </strong></p>
 
 ### Please don't install this with a mod manager like r2modman, it won't work!
@@ -18,11 +18,11 @@ Some of the notable features included are:
 * **Legacy Origin social features** - join your friends' parties without needing EA invites
 * **Other fun miscellaneous things which are cool** - Loading progress bars, gimmicky mod settings to play with, demo playback helpers and other stuff which I honestly can't remember for you to go find.
 
-If you find any bugs please open an issue at [https://github.com/sonny-tel/Ion](https://github.com/sonny-tel/Ion), or you can message me directly (@sonny.tel) on discord or in the [Official Discord Server](https://discord.gg/UhPwruvSFH)
+If you find any bugs please open an issue at [https://github.com/R2Ion/Ion](https://github.com/R2Ion/Ion), or you can message me directly (@sonny.tel) on discord or in the [Official Discord Server](https://discord.gg/UhPwruvSFH)
 
 ## Instructions
 
-You can grab a copy from the [releases](https://github.com/sonny-tel/Ion/releases/latest) page.
+You can grab a copy from the [releases](https://github.com/R2Ion/Ion/releases/latest) page.
 
 Installation is basically the same as regular Northstar, just follow their manual install instructions [here](https://docs.northstar.tf/Wiki/installing-northstar/manual-installation/#installing-northstar). If you have an existing Northstar install, you might want to backup and delete/move any files in R2Northstar/mods or R2Northstar/packages, as there's a chance there might be problems.
 
@@ -31,7 +31,12 @@ If you own the game via steam, right click on Titanfall 2, then hit "Properties"
 For EA App users, click on Titanfall 2 on the left side, then hit the "Manage" button, then "View properties" and add `-northstar` to the "Advanced launch options" box
 
 ## Hosting
-You can get the Ion docker image at: [ghcr.io/sonny-tel/northstar-dedicated](https://ghcr.io/sonny-tel/northstar-dedicated)
+
+### Dedicated Image
+You can get the Ion docker image at: [ghcr.io/R2Ion/ion-dedicated](https://R2Ion/ion-dedicated)
+
+### Playing P2P
+In a Northstar private match, you can get your P2P address in the footer, players can use this to connect from the server browser's "Direct Connect" dialog.
 
 If you're not interested in using any of the features offered you can still benefit from using this image as opposed to the official one since it runs a much newer Alpine Linux image with Wine 10, which lets you run Northstar plugins.
 
@@ -68,7 +73,7 @@ Here's an example schema that will download Titanframework to your clients
 
 
 ## Modding
-If you find any mods that don't work you can open an [issue](https://github.com/sonny-tel/Ion/issues), please document any script errors in the console or logs I'll look into making compatability patches.
+If you find any mods that don't work you can open an [issue](https://github.com/R2Ion/Ion/issues), please document any script errors in the console or logs I'll look into making compatability patches.
 
 Parity is mostly in touch with Northstar, versioning and mod names are the same. Any existing mods using UI script stuff that do `#if VANILLA` probably won't work but that's about it.
 
@@ -102,22 +107,13 @@ WeaponData
 
 You'll want to use the branch repositories, the steps should be basically the same as for normally building Northstar:
 
-* [Mods](https://github.com/VITALISED/NorthstarMods/tree/ion)
-* [Launcher](https://github.com/VITALISED/NorthstarLauncher/tree/ion)
-* [DiscordRPC](https://github.com/sonny-tel/NorthstarDiscordRPC/tree/ion)
-
-## Hosting
-
-### P2P
-
-You can use P2P after accepting the EOS agreement, restarting your game and going into a private match. Send the address to your friends which they can use to connect from "Direct Connect" in the server browser.
-
-### Dedicated
-
-Instructions for hosting an Ion dedicated server are on the [Github repository](https://github.com/sonny-tel/Ion)
+* [Mods](https://github.com/R2Ion/IonMods/tree/ion)
+* [Launcher](https://github.com/R2Ion/IonLauncher/tree/ion)
+* [DiscordRPC](https://github.com/R2Ion/IonDiscordRPC/tree/ion)
 
 ## Credits
 
+* [dr3murr](https://github.com/dr3murr) for P2P, navmeshes and lots of other things.
 * [Allusive](https://github.com/AllusiveWheat) for doing a lot of work especially with friend presence and CI, I would not have bothered otherwise, super cool stuff.
 * Northstar for inspiring me to stick it to the man and waste my time on this terrible game still after how many years
 * Ado_ for making all the cool cover art for this. They have a [SteamGrid](https://www.steamgriddb.com/profile/76561199101934933) profile which has stuff for this project which you can check out.

@@ -36,15 +36,15 @@ jobs:
         timeout-minutes: 30 # Only wait for 30 minutes. If we take longer, something probably broke
         run: bash ion/wait_for_launcher_dl.sh $NORTHSTAR_VERSION
       - name: Download compiled launcher
-        run: wget "https://github.com/sonny-tel/NorthstarLauncher/releases/download/${{ env.NORTHSTAR_VERSION }}_${{env.ION_PATCH}}/ion-launcher.zip"
+        run: wget "https://github.com/R2Ion/IonLauncher/releases/download/${{ env.NORTHSTAR_VERSION }}_${{env.ION_PATCH}}/ion-launcher.zip"
       - name: Download DiscordRPC plugin
-        run: wget "https://github.com/sonny-tel/NorthstarDiscordRPC/releases/download/${{ env.DISCORD_RPC_VERSION }}/northstar-discord-rpc.zip"
+        run: wget "https://github.com/R2Ion/IonDiscordRPC/releases/download/${{ env.DISCORD_RPC_VERSION }}/northstar-discord-rpc.zip"
       - name: Download compiled stubs
         run: wget "https://github.com/R2Northstar/NorthstarStubs/releases/download/v1/NorthstarStubs.zip"
       - name: Checkout core mods
         uses: actions/checkout@v4
         with:
-          repository: sonny-tel/NorthstarMods
+          repository: R2Ion/IonMods
           ref: ${{ env.GIT_VERSION }}
           path: northstar-mods
       - name: Update mod version info
@@ -74,7 +74,7 @@ jobs:
       - name: Checkout Navmesh repository
         uses: actions/checkout@v4
         with:
-          repository: R2Northstar/NorthstarNavs
+          repository: R2Ion/IonNavs
           ref: "v4"
           path: northstar-navs
       - name: Navmeshes setup
@@ -139,7 +139,7 @@ jobs:
       - name: (DEBUG) Download Northstar package
         if: ${{ env.ACT }} # Download Ion package from releases when running locally instead of relying on previous jobs
         run: |
-          wget --output-document ion.zip https://github.com/sonny-tel/Ion/releases/download/v1.6.3/Ion.release.v1.6.3.zip
+          wget --output-document ion.zip https://github.com/R2Ion/Ion/releases/download/v1.6.3/Ion.release.v1.6.3.zip
           unzip ion.zip -d ion
 
       - name: Download Ion package
@@ -153,8 +153,8 @@ jobs:
         run: |
           mkdir --parents thunderstore/dist/Ion
           mv --verbose ion/* thunderstore/dist/Ion
-          wget --output-document thunderstore/icon.png https://raw.githubusercontent.com/sonny-tel/Ion/main/thunderstore/icon.png
-          wget --output-document thunderstore/README.md https://raw.githubusercontent.com/sonny-tel/Ion/main/thunderstore/README.md
+          wget --output-document thunderstore/icon.png https://raw.githubusercontent.com/R2Ion/Ion/main/thunderstore/icon.png
+          wget --output-document thunderstore/README.md https://raw.githubusercontent.com/R2Ion/Ion/main/thunderstore/README.md
 
       - name: Setup environment variables
         run: |
