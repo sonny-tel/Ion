@@ -50,9 +50,13 @@ jobs:
       - name: Update mod version info
         run: |
           export MOD_VERSION=$(echo $NORTHSTAR_VERSION | tr --delete 'v')
+          export PATCH_VERSION=$(echo $ION_PATCH)
           cat <<< $(jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.Client/mod.json) > northstar-mods/Northstar.Client/mod.json
           cat <<< $(jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.Custom/mod.json) > northstar-mods/Northstar.Custom/mod.json
           cat <<< $(jq ".Version = \"${MOD_VERSION}\"" northstar-mods/Northstar.CustomServers/mod.json) > northstar-mods/Northstar.CustomServers/mod.json
+          cat <<< $(jq ".Patch = \"${PATCH_VERSION}\"" northstar-mods/Northstar.Client/mod.json) > northstar-mods/Northstar.Client/mod.json
+          cat <<< $(jq ".Patch = \"${PATCH_VERSION}\"" northstar-mods/Northstar.Custom/mod.json) > northstar-mods/Northstar.Custom/mod.json
+          cat <<< $(jq ".Patch = \"${PATCH_VERSION}\"" northstar-mods/Northstar.CustomServers/mod.json) > northstar-mods/Northstar.CustomServers/mod.json
       - name: Generate md5sum file
         working-directory: northstar-mods
         run: |
