@@ -79,7 +79,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: R2Ion/IonNavs
-          ref: "v4"
+          ref: "v5"
           path: northstar-navs
       - name: Navmeshes setup
         run: |
