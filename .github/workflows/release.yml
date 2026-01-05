@@ -188,3 +188,29 @@ jobs:
 
           tcli build
           tcli publish --repository "$TS_REPO" --file build/*.zip
+
+  build-docker-image:
+    needs: build-northstar
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Set version variables
+        run: |
+          echo "NORTHSTAR_VERSION=${GITHUB_REF_NAME%_*}" >> $GITHUB_ENV
+          echo "ION_PATCH=${GITHUB_REF_NAME##*_}" >> $GITHUB_ENV
+      - name: Download Ion package
+        uses: actions/download-artifact@v4
+        with:
+          name: Ion.release.${{ env.NORTHSTAR_VERSION }}.zip
+          path: "."
+      - name: Compute SHA-512 checksum
+        id: checksum
+        run: |
+          SHA512=$(sha512sum Ion.release.${{ env.NORTHSTAR_VERSION }}.zip | awk '{print $1}')
+          echo "sha512=$SHA512" >> $GITHUB_OUTPUT
+      - name: Repository dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.REPO_DISPATCH_TOKEN }}
+          repository: R2Ion/ion-dedicated
+          event-type: build-docker-image
+          client-payload: '{"version": "${{ env.NORTHSTAR_VERSION }}", "patch": "${{ env.ION_PATCH }}", "sha512": "${{ steps.checksum.outputs.sha512 }}"}'
