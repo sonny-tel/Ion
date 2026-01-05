@@ -200,8 +200,13 @@ jobs:
       - name: Download Ion package
         uses: actions/download-artifact@v4
         with:
-          name: Ion.release.${{ env.NORTHSTAR_VERSION }}.zip
-          path: "."
+          name: Ion.release.${{ env.NORTHSTAR_VERSION }}
+          path: ion
+      - name: Create zip package
+        run: |
+          cd ion/
+          zip --recurse-paths --quiet Ion.release.${{ env.NORTHSTAR_VERSION }}.zip .
+          mv Ion.release.${{ env.NORTHSTAR_VERSION }}.zip ../
       - name: Compute SHA-512 checksum
         id: checksum
         run: |
