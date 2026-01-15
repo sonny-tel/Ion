@@ -101,11 +101,9 @@ jobs:
           zip --recurse-paths --quiet Ion.release.${{ env.NORTHSTAR_VERSION }}.zip .
           mv Ion.release.${{ env.NORTHSTAR_VERSION }}.zip ../
       - name: Compute SHA-512 checksum
+        id: checksum
         run: |
-          sha512sum Ion.release.${{ env.NORTHSTAR_VERSION }}.zip
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          sha512sum Ion.release.${{ env.NORTHSTAR_VERSION }}.zip >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "sha512=$(sha512sum Ion.release.${{ env.NORTHSTAR_VERSION }}.zip | awk '{print $1}')" >> $GITHUB_OUTPUT
       - name: Upload zip to release draft
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/v') && !contains(env.NORTHSTAR_VERSION, '-rc')
@@ -192,6 +190,7 @@ jobs:
   build-docker-image:
     needs: build-northstar
     runs-on: ubuntu-22.04
+
     steps:
       - name: Set version variables
         run: |
@@ -209,8 +208,10 @@ jobs:
           echo "sha512=$SHA512" >> $GITHUB_OUTPUT
       - name: Repository dispatch
         uses: peter-evans/repository-dispatch@v3
+        env:
+          SHA512: ${{needs.build-northstar.outputs.sha512}}
         with:
           token: ${{ secrets.REPO_DISPATCH_TOKEN }}
           repository: R2Ion/ion-dedicated
           event-type: build-docker-image
-          client-payload: '{"version": "${{ env.NORTHSTAR_VERSION }}", "patch": "${{ env.ION_PATCH }}", "sha512": "${{ steps.checksum.outputs.sha512 }}"}'
+          client-payload: '{"version": "${{ env.NORTHSTAR_VERSION }}", "patch": "${{ env.ION_PATCH }}", "sha512": "$SHA512"}'
