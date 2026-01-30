@@ -64,8 +64,6 @@ jobs:
           git ls-tree -r $NORTHSTAR_VERSION --name-only | xargs -L1 md5sum >> md5sum.txt
       - name: Make folder structure
         run: |
-          mv --verbose ion/release/* ion/.
-          rm --dir ion/release
           mkdir --parents ion/R2Northstar/mods
           mkdir --parents ion/R2Northstar/plugins
           mkdir --parents ion/bin/x64_dedi
