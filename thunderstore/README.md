@@ -16,6 +16,7 @@ Some of the notable features included are:
 * **Sonny Auto-Downloader** (SAD) (name subject to change) - an overlay mod downloader ontop of Northstar's existing mod downloader that allows clients to download unverified remote mods from servers
 * **Full UI redesign of Northstar** - most menus have had a considerable facelift and some annoying UX issues such as the lack of smooth scrolling have been fixed up
 * **Legacy Origin social features** - join your friends' parties without needing EA invites
+* **ModWorkshop Support** - Download your mods in-game from [modworkshop.net](https://modworkshop.net/g/titanfall-2)
 * **Other fun miscellaneous things which are cool** - Loading progress bars, gimmicky mod settings to play with, demo playback helpers and other stuff which I honestly can't remember for you to go find.
 
 If you find any bugs please open an issue at [https://github.com/R2Ion/Ion](https://github.com/R2Ion/Ion), or you can message me directly (@sonny.tel) on discord or in the [Official Discord Server](https://discord.gg/UhPwruvSFH)
