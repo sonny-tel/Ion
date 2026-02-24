@@ -22,6 +22,8 @@ env:
 jobs:
   build-northstar:
     runs-on: ubuntu-22.04
+    outputs:
+      sha512: ${{ steps.checksum.outputs.sha512 }}
     steps:
       - name: Set version variables
         run: |
@@ -203,11 +205,7 @@ jobs:
         with:
           name: Ion.release.${{ env.NORTHSTAR_VERSION }}
           path: .
-      - name: Compute SHA-512 checksum
-        id: checksum
-        run: |
-          SHA512=$(sha512sum Ion.release.${{ env.NORTHSTAR_VERSION }}.zip | awk '{print $1}')
-          echo "sha512=$SHA512" >> $GITHUB_OUTPUT
+
       - name: Repository dispatch
         uses: peter-evans/repository-dispatch@v3
         env:
@@ -216,4 +214,4 @@ jobs:
           token: ${{ secrets.REPO_DISPATCH_TOKEN }}
           repository: R2Ion/ion-dedicated
           event-type: build-docker-image
-          client-payload: '{"version": "${{ env.NORTHSTAR_VERSION }}", "patch": "${{ env.ION_PATCH }}", "sha512": "$SHA512"}'
+          client-payload: '{"version": "${{ env.NORTHSTAR_VERSION }}", "patch": "${{ env.ION_PATCH }}", "sha512": "${{ needs.build-northstar.outputs.sha512 }}"}'
