@@ -42,7 +42,7 @@ jobs:
       - name: Download DiscordRPC plugin
         run: wget "https://github.com/R2Ion/IonDiscordRPC/releases/download/${{ env.DISCORD_RPC_VERSION }}/northstar-discord-rpc.zip"
       - name: Download compiled stubs
-        run: wget "https://github.com/R2Ion/IonStubs/releases/download/v2/NorthstarStubs.zip"
+        run: wget "https://github.com/R2Ion/IonStubs/releases/download/v3/NorthstarStubs.zip"
       - name: Checkout core mods
         uses: actions/checkout@v4
         with:
