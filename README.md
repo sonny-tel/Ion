@@ -4,7 +4,7 @@
 <p align="center"><strong>
 <a href="https://github.com/R2Ion/Ion/releases/latest">Download</a> | <a href="https://thunderstore.io/c/northstar/p/r2ion/Ion/">Thunderstore</a> | <a href="https://discord.gg/UhPwruvSFH">Discord</a>
 </strong></p>
-
+ 
 Ion is a Northstar fork for Titanfall 2 which adds a variety of enhancements for Vanilla and Northstar.
 
 Some of the notable features included are:
