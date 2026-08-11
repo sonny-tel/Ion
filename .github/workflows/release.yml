@@ -34,11 +34,16 @@ jobs:
         with:
           ref: ${{ env.GIT_VERSION }}
           path: ion
-      - name: Wait for launcher release build to be ready
-        timeout-minutes: 30 # Only wait for 30 minutes. If we take longer, something probably broke
-        run: bash ion/wait_for_launcher_dl.sh $NORTHSTAR_VERSION
       - name: Download compiled launcher
-        run: wget "https://github.com/R2Ion/IonLauncher/releases/download/${{ env.NORTHSTAR_VERSION }}_${{env.ION_PATCH}}/ion-launcher.zip"
+        timeout-minutes: 35
+        run: |
+          curl --fail --location \
+            --retry 30 \
+            --retry-delay 60 \
+            --retry-all-errors \
+            --retry-max-time 1800 \
+            --output ion-launcher.zip \
+            "https://github.com/R2Ion/IonLauncher/releases/download/${GIT_VERSION}/ion-launcher.zip"
       - name: Download DiscordRPC plugin
         run: wget "https://github.com/R2Ion/IonDiscordRPC/releases/download/${{ env.DISCORD_RPC_VERSION }}/northstar-discord-rpc.zip"
       - name: Download compiled stubs
